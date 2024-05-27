@@ -150,6 +150,12 @@ uint16_t* SensorsAPI::getRawValues(sensor_t sensor_name, uint32_t& number_of_val
 	return DataAPI::getChannelRawValues(sensor_info.adc_num, sensor_info.channel_num, number_of_values_acquired);
 }
 
+float32_t* SensorsAPI::getValues(sensor_t sensor_name, uint32_t& number_of_values_acquired)
+{
+	sensor_info_t sensor_info = getEnabledSensorInfo(sensor_name);
+	return DataAPI::getChannelValues(sensor_info.adc_num, sensor_info.channel_num, number_of_values_acquired);
+}
+
 float32_t SensorsAPI::peekLatestValue(sensor_t sensor_name)
 {
 	sensor_info_t sensor_info = getEnabledSensorInfo(sensor_name);
