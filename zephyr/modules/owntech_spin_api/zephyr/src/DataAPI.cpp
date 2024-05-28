@@ -305,7 +305,6 @@ float32_t DataAPI::getConversionParameterValue(uint8_t pin_num, parameter_t para
 	}
 
 	return data_conversion_get_parameter(adc_num,channel_num, parameter_name);
-
 }
 
 conversion_type_t DataAPI::getConversionParameterType(uint8_t pin_num)
@@ -593,7 +592,7 @@ float32_t DataAPI::getChannelLatest(adc_t adc_num, uint8_t channel_num, uint8_t*
 		float32_t peekValue;
 		if (raw_value != PEEK_NO_VALUE)
 		{
-			data_conversion_convert_raw_value(adc_num, channel_num, raw_value);
+			peekValue = data_conversion_convert_raw_value(adc_num, channel_num, raw_value);
 		}
 		else
 		{
