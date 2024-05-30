@@ -213,8 +213,7 @@ public:
 	 *        from each other.
 	 *
 	 * @note When using this functions, the user is responsible for data
-	 *       conversion. Use matching data.convert*() function
-	 *       for this purpose.
+	 *       conversion. Use data.convertValue() function for this purpose.
 	 *
 	 * @note When using this function, DO NOT use the function to get the
 	 *       latest converted value for the same channel as this function

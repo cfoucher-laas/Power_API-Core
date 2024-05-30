@@ -339,7 +339,7 @@ public:
 	 *        The board must be connected to a comuter using USB to display
 	 *        the console.
 	 *
-	 * @note  This function can't be called before the *all* Twist sensors have
+	 * @note  This function can't be called before *all* Twist sensors have
 	 *        been enabled (you can use enableDefaultTwistSensors() for that
 	 *        purpose). The DataAPI must not have been started, neither
 	 *        explicitly nor by starting the Uninterruptible task.
