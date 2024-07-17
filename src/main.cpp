@@ -55,11 +55,11 @@ void setup_routine()
 {
     // Then declare tasks
     uint32_t background_task_number = task.createBackground(loop_background_task);
-    //task.createCritical(loop_critical_task, 500); // Uncomment if you use the critical task
+    task.createCritical(loop_critical_task, 500, source_tim6); // Uncomment if you use the critical task
 
     // Finally, start tasks
     task.startBackground(background_task_number);
-    //task.startCritical(); // Uncomment if you use the critical task
+    task.startCritical(false); // Uncomment if you use the critical task
 }
 
 //--------------LOOP FUNCTIONS--------------------------------
@@ -73,7 +73,7 @@ void loop_background_task()
 {
     // Task content
     printk("Hello World! \n");
-    spin.led.toggle();
+    //spin.led.toggle();
 
     // Pause between two runs of the task
     task.suspendBackgroundMs(1000);
@@ -87,7 +87,13 @@ void loop_background_task()
  */
 void loop_critical_task()
 {
-
+    static int blink_cpt = 0;
+    blink_cpt++;
+    if (blink_cpt == 2000)
+    {
+        spin.led.toggle();
+        blink_cpt = 0;
+    }
 }
 
 /**
